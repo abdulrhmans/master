@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="config_webkul_pos_addons_form" model="ir.ui.view">
+            <field name="name">Webkul POS Addons Setting</field>
+            <field name="model">webkul.pos.addons</field>
+            <field name="arch" type="xml">
+               <form string="Webkul POS Addons Settings" class="oe_form_configuration">
+                    <header  class="col-md-12" style="position:fixed;z-index:10" >
+                        
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                   
+                    </header>
+                    <div style="height:10px;">
+                    </div>
+
+                    <center><u><separator string="Product Management"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%;">Serial No.</th>
+                                <th style="width:45%;">Module Name</th>
+                                <th style="width:20%;">Is Installed ?</th>
+                                <th style="width:20%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_product_pack"/></td>
+                                <td><field name="module_pos_product_pack"/></td>
+                                <td name="module_pos_product_pack">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_category_filter"/></td>
+                                <td><field name="module_pos_category_filter"/></td>
+                                <td name="module_pos_category_filter">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_pos_cat_merge"/></td>
+                                <td><field name="module_pos_cat_merge"/></td>
+                                <td name="module_pos_cat_merge">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_pos_shops"/></td>
+                                <td><field name="module_pos_shops"/></td>
+                                <td name="module_pos_shops">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <center><u><separator string="Stock Management"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_stocks"/></td>
+                                <td><field name="module_pos_stocks"/></td>
+                                <td name="module_pos_stocks">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_warehouse_management"/></td>
+                                <td><field name="module_pos_warehouse_management"/></td>
+                                <td name="module_pos_warehouse_management">-</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <center><u><separator string="Delivery Method"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_to_sale_order"/></td>
+                                <td><field name="module_pos_to_sale_order"/></td>
+                                <td name="module_pos_to_sale_order">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <center><u><separator string="Billing And Invoicing"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_invoice"/></td>
+                                <td><field name="module_pos_invoice"/></td>
+                                <td name="module_pos_invoice">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_auto_invoice_reconcile"/></td>
+                                <td><field name="module_pos_auto_invoice_reconcile"/></td>
+                                <td name="module_pos_auto_invoice_reconcile">-</td>
+                            </tr>
+                             <tr>
+                                <td>3</td>
+                                <td><label for="module_pos_invoice_details"/></td>
+                                <td><field name="module_pos_invoice_details"/></td>
+                                <td name="module_pos_invoice_details">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="POS Orders Management"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_orders"/></td>
+                                <td><field name="module_pos_orders"/></td>
+                                <td name="module_pos_orders">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_order_return"/></td>
+                                <td><field name="module_pos_order_return"/></td>
+                                <td name="module_pos_order_return">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_pos_order_reprint"/></td>
+                                <td><field name="module_pos_order_reprint"/></td>
+                                <td name="module_pos_order_reprint">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_pos_reorder"/></td>
+                                <td><field name="module_pos_reorder"/></td>
+                                <td name="module_pos_reorder">-</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><label for="module_pos_order_notes"/></td>
+                                <td><field name="module_pos_order_notes"/></td>
+                                <td name="module_pos_order_notes">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Prices And Promotion"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                             <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_order_discount"/></td>
+                                <td><field name="module_pos_order_discount"/></td>
+                                <td name="module_pos_order_discount">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_custom_discount"/></td>
+                                <td><field name="module_pos_custom_discount"/></td>
+                                <td name="module_pos_custom_discount">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_pos_multi_pricelist"/></td>
+                                <td><field name="module_pos_multi_pricelist"/></td>
+                                <td name="module_pos_multi_pricelist">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_pos_customer_pricelist"/></td>
+                                <td><field name="module_pos_customer_pricelist"/></td>
+                                <td name="module_pos_customer_pricelist">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td><label for="module_pos_discounted_product"/></td>
+                                <td><field name="module_pos_discounted_product"/></td>
+                                <td name="module_pos_discounted_product">-</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Advertising And Marketing"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                             <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_coupons"/></td>
+                                <td><field name="module_pos_coupons"/></td>
+                                <td name="module_pos_coupons">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_loyalty_management"/></td>
+                                <td><field name="module_pos_loyalty_management"/></td>
+                                <td name="module_pos_loyalty_management">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_pos_membership_cards"/></td>
+                                <td><field name="module_pos_membership_cards"/></td>
+                                <td name="module_pos_membership_cards">-</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_pos_wallet_management"/></td>
+                                <td><field name="module_pos_wallet_management"/></td>
+                                <td name="module_pos_wallet_management">-</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Value Added"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                             <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_carry_bag"/></td>
+                                <td><field name="module_pos_carry_bag"/></td>
+                                <td name="module_pos_carry_bag">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Misc."/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <tr>
+                                <td>1</td>
+                                <td><label for="module_pos_order_sync"/></td>
+                                <td><field name="module_pos_order_sync"/></td>
+                                <td name="module_pos_order_sync">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_pos_quotation"/></td>
+                                <td><field name="module_pos_quotation"/></td>
+                                <td name="module_pos_quotation">-</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_pos_line_tax"/></td>
+                                <td><field name="module_pos_line_tax"/></td>
+                                <td name="module_pos_line_tax">-</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_pos_product_detail"/></td>
+                                <td><field name="module_pos_product_detail"/></td>
+                                <td name="module_pos_product_detail">-</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><label for="moduel_pos_extra_utilities"/></td>
+                                <td><field name="moduel_pos_extra_utilities"/></td>
+                                <td name="moduel_pos_extra_utilities">-</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><label for="module_pos_screen_lock"/></td>
+                                <td><field name="module_pos_screen_lock"/></td>
+                                <td name="module_pos_screen_lock">-</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><label for="module_pos_change_logo"/></td>
+                                <td><field name="module_pos_change_logo"/></td>
+                                <td name="module_pos_change_logo">-</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><label for="module_pos_items_count"/></td>
+                                <td><field name="module_pos_items_count"/></td>
+                                <td name="module_pos_items_count">-</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>9</td>
+                                <td><label for="module_pos_cash_alert"/></td>
+                                <td><field name="module_pos_cash_alert"/></td>
+                                <td name="module_pos_cash_alert">-</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><label for="module_pos_manage_order_selector"/></td>
+                                <td><field name="module_pos_manage_order_selector"/></td>
+                                <td name="module_pos_manage_order_selector">-</td>
+                            </tr>
+                             <tr>
+                                <td>10</td>
+                                <td><label for="module_pos_customer_contacts"/></td>
+                                <td><field name="module_pos_customer_contacts"/></td>
+                                <td name="module_pos_customer_contacts">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form> 
+            </field>
+        </record>
+        <record id="action_webkul_pos_addons" model="ir.actions.act_window">
+            <field name="name">Webkul POS Addons Setting</field>
+            <field name="res_model">webkul.pos.addons</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_webkul_pos_addons" parent="point_of_sale.menu_point_root" action="action_webkul_pos_addons" sequence="218" groups="point_of_sale.group_pos_manager" name="Webkul POS Addons"/>
+
+    </data>
+</odoo>
