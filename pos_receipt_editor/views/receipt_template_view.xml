@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="receipt_template_form" model="ir.ui.view">
+      <field name="name">receipt.template.form</field>
+      <field name="model">receipt.template</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet string="">
+            <group>
+              <group>
+                <field name="name"/>
+              </group>
+              <group>
+                <field name="type"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Template">
+                <field name="template" nolabel="1" widget="ace" options="{'mode': 'xml'}" modifiers="{}"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="receipt_template_tree" model="ir.ui.view">
+      <field name="name">receipt.template.tree</field>
+      <field name="model">receipt.template</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <field name="name"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="receipt_template_action" model="ir.actions.act_window">
+      <field name="name">Receipt template</field>
+      <field name="res_model">receipt.template</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="receipt_template_menu"
+              action="receipt_template_action"
+              parent="point_of_sale.menu_point_config_product"
+              groups="point_of_sale.group_pos_manager"
+              name="Receipt template"
+              sequence="40"/>
+
+
+  </data>
+</odoo>

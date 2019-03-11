@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="pos_config_ticket_receipt_inherit_form">
+      <field name="name">pos.config.ticket.receipt.inherit.form</field>
+      <field name="model">pos.config</field>
+      <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[@id='receipt']" position="inside">
+          <div class="col-xs-12 col-md-6 o_setting_box" id="use_custom_receipt">
+            <div class="o_setting_left_pane">
+              <field name="use_custom_receipt"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="use_custom_receipt"/>
+              <div class="text-muted">
+                Use custom receipt
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 o_setting_box" id="ticket_print_mode" attrs="{'invisible':[('use_custom_receipt','=', False)]}">
+            <div class="o_setting_right_pane">
+              <label for="ticket_receipt_id"/>
+              <div class="text-muted">
+                Choose your ticket receipt template
+              </div>
+              <div class="content-group">
+                <div class="mt16">
+                  <field name="ticket_receipt_id" class="o_light_label" attrs="{'required':[('module_pos_restaurant','=', True)]}"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 o_setting_box" id="ticket_order_id"
+               attrs="{'invisible':['|', ('module_pos_restaurant','=', False),('use_custom_receipt','=', False)]}">
+            <div class="o_setting_right_pane">
+              <label for="ticket_order_id"/>
+              <div class="text-muted">
+                Choose your order receipt template
+              </div>
+              <div class="content-group">
+                <div class="mt16">
+                  <field name="ticket_order_id" class="o_light_label"
+                         attrs="{'required':[('module_pos_restaurant','=', True),('use_custom_receipt','=', True)]}"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6 o_setting_box" id="ticket_bill_id"
+               attrs="{'invisible':['|', ('module_pos_restaurant','=', False),('use_custom_receipt','=', False)]}">
+            <div class="o_setting_right_pane">
+              <label for="ticket_bill_id"/>
+              <div class="text-muted">
+                Choose your bill receipt template
+              </div>
+              <div class="content-group">
+                <div class="mt16">
+                  <field name="ticket_bill_id" class="o_light_label"
+                         attrs="{'required':[('module_pos_restaurant','=', True),('use_custom_receipt','=', True)]}"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

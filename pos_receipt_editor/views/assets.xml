@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="pos_receipt_editor_assets" inherit_id="point_of_sale.assets">
+      <xpath expr="." position="inside">
+        <script type="text/javascript" src="/pos_receipt_editor/static/src/js/pos_receipt_editor.js"></script>
+      </xpath>
+    </template>
+  </data>
+</odoo>
