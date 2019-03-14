@@ -6,7 +6,6 @@
  POS Orders History
 ====================
 
-
 The module allows to display:
 * all paid orders in POS
 * all cancelled orders in POS
