@@ -5,7 +5,7 @@
 ====================
  POS Orders History
 ====================
-Adnan
+
 
 The module allows to display:
 * all paid orders in POS
