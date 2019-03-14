@@ -9,29 +9,33 @@
 
     <t t-extend="PosTicket">
         <t t-jquery='.pos-sale-ticket' t-operation='replace'>
-            <div class="pos-sale-ticket">
-                <div>
-                    <div style="width: 55%; float: left; padding: 20px 0px;">
+            <div class="pos-sale-ticket" style="font-family: Helvetica, sans-serif;">
+                <div style="text-align:center;">
+                    <div style="width: 50%;display:inline-block;">
+                        <img src='/web/binary/company_logo' style="width:150px;"/>
+                    </div>
+                    <div style="width: 100%;">
                         <t t-if="order.get_client()">
                             Customer: <t t-esc="order.get_client().name"/><br />
-                        </t>
-                        Cashier: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
-                         <t t-if="widget.pos.company.phone">
-                            Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
-                        </t>
-                        <t t-esc="order.name"/>
+                        </t><br />
+			<div style="width:100%;font-size:18pt;font-weight:bold;">
+                        	<t t-esc="order.name.substring(order.name.length - 4, order.name.length).replace(/^0+/, '')"/>
+			</div><br />
+			<div style="width:100%; padding: 0 10px 0 0;">
+				<span>رقم الضريبة VAT # </span>
+				<t t-esc="widget.pos.company.vat" />
+			</div><br />
+                        Cashier: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br /><br />
+
                         <t t-esc="moment().format('L LT')"/>
                     </div>
-                    <div style="width: 45%;float: left; ">
-                        <img src='/web/binary/company_logo' style="width:100%"/>
-                    </div>
                 </div>
-                <t t-if="widget.pos.company.name">
+                <!--<t t-if="widget.pos.company.name">
                     <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.name"/></div>
-                </t>
-                <t t-if="widget.pos.company.email">
+                </t>-->
+                <!--<t t-if="widget.pos.company.email">
                     <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.email"/></div>
-                </t>
+                </t>-->
                 <br />
                 <t t-if="receipt.header">
                     <div style='text-align:center'>
@@ -46,18 +50,20 @@
                         <col width='15%' />
                         <col width='30%' />
                     </colgroup>
-                    <tr style="border: 1px solid rgb(0, 0, 0);">
-                        <th>Name</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>Value</th>
+                    <tr style="border-bottom: 1px solid rgb(0, 0, 0);padding-bottom:2px;">
+                        <th>إسم</th>
+                        <th>كمية</th>
+                        <th>سعر</th>
+                        <th></th>
                     </tr>
                     <tr t-foreach="orderlines" t-as="orderline">
-                        <td>
+                        <td style="padding-top:5px;">
                             <t t-esc="orderline.get_product().display_name"/>
                              <t t-if="orderline.get_discount() > 0">
                                 <div class="pos-disc-font">
-                                    With a <t t-esc="orderline.get_discount()"/>% discount
+                                    مع 
+					<t t-esc="orderline.get_discount()"/>
+					% خصم
                                 </div>
                             </t>
                         </td>
@@ -84,7 +90,7 @@
                     </colgroup>
                     <tr>
                         <td></td>
-                        <td>Subtotal:</td>
+                        <td>الجمع:</td>
                         <td style='text-align:right'>
                             <t t-esc="widget.format_currency(order.get_total_without_tax())"/>
                         </td>
@@ -100,13 +106,13 @@
                     </t>
                     <tr>
                         <td></td>
-                        <td>Discount:</td>
+                        <td>خصم:</td>
                         <td style='text-align:right'>
                             <t t-esc="widget.format_currency(order.get_total_discount())"/>
                         </td>
                     </tr>
                     <tr class="emph">
-                        <td>Total:</td>
+                        <td>إجمالي:</td>
                         <td colspan="2" style='text-align:right'>
                             <t t-esc="widget.format_currency(order.get_total_with_tax())"/>
                         </td>
@@ -143,7 +149,7 @@
                         <col width='15%' />
                         <col width='30%' />
                     </colgroup>
-                    <tr><td>Change:</td>
+                    <tr><td>صرف:</td>
                          <td>
                           </td>
                           <td>
@@ -152,6 +158,14 @@
                         <t t-esc="widget.format_currency(order.get_change())"/>
                         </td></tr>
                 </table>
+                <div>
+			<t t-if="widget.pos.company.phone">
+                    للحجز وخدمة التوصيل اتصل
+				<br />
+			 <t t-esc="widget.pos.company.phone || ''"/>
+	                </t>
+
+		</div> 
             </div>
         </t>
     </t>
