@@ -108,9 +108,7 @@
                         <td style="padding-top:5px;">
                             <t t-esc="orderline.get_product().display_name"/>
                              <t t-if="orderline.get_product().product_arabic">
-					<br />
-	                               <t t-esc="orderline.get_product().product_arabic"/>
-				</t>
+							</t>
                              <t t-if="orderline.get_discount() > 0">
                                 <div class="pos-disc-font">
                                     مع 
