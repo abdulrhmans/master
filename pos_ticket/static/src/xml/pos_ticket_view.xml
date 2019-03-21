@@ -10,12 +10,6 @@
     <t t-extend="PosTicket">
         <t t-jquery='.pos-sale-ticket' t-operation='replace'>
             <div class="pos-sale-ticket" style="font-family: Helvetica, sans-serif;">
-		<t t-if="receipt.header">
-                    <div style='text-align:center'>
-                        <t t-esc="receipt.header" />
-                    </div>
-                    <br/>
-                </t>
                 <div style="text-align:center;width:90%;">
                     <div>
                         <img src='/web/binary/company_logo' style="width:50%;"/>
@@ -224,7 +218,7 @@
                     للحجز وخدمة التوصيل اتصل
 				<br />
 			 <t t-esc="widget.pos.company.phone || ''"/>
-	                </t>
+	                </t><br/>
 				شكراً لزيارتكم
 		</div> 
             </div>
