@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="PosTicket">
+        <t t-jquery="t[t-esc='orderline.get_product().display_name']" t-operation="after">
+            <div>
+                <t t-if="orderline.get_product().product_arabic"
+                   t-esc="orderline.get_product().product_arabic"/>
+            </div>
+        </t>
+    </t>
+    <t t-extend="Product">
+        <t t-jquery="span:first .product-name" t-operation="append">
+            <t t-if="product.product_arabic">
+                <br/>
+                <t t-esc="product.product_arabic"/>
+            </t>
+        </t>
+    </t>
+</templates>
