@@ -1,10 +1,12 @@
 #!/usr/bin/python
 
 from __future__ import print_function
-#import serial
+import serial
 import socket
 import usb.core
 import usb.util
+import logging
+
 
 from .escpos import *
 from .constants import *
@@ -168,7 +170,7 @@ class Serial(Escpos):
 
     def open(self):
         """ Setup serial port and set is as escpos device """
-        #self.device = serial.Serial(port=self.devfile, baudrate=self.baudrate, bytesize=self.bytesize, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=self.timeout, dsrdtr=True)
+        self.device = serial.Serial(port=self.devfile, baudrate=self.baudrate, bytesize=self.bytesize, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=self.timeout, dsrdtr=True)
 
         if self.device is not None:
             print("Serial printer enabled")
@@ -203,6 +205,7 @@ class Network(Escpos):
 
     def open(self):
         """ Open TCP socket and set it as escpos device """
+		logging.error('AF_INET: %s, Socket_Stream: %s', socket.AF_INET, socket.SOCK_STREAM)
         self.device = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.device.connect((self.host, self.port))
 
