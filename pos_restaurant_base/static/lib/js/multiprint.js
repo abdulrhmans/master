@@ -1,4 +1,4 @@
-odoo.define('pos_restaurant.base', function (require) {
+odoo.define('pos_restaurant_base.multiprint', function (require) {
     "use strict";
     // DIFFERENCES FROM ORIGINAL: 
     // * Printer class is copy-pasted, but added to returns to be extendable
