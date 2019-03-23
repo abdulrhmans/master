@@ -12,7 +12,7 @@
     'version': '0.1',
     'depends': [
         'base',
-        #'pos_restaurant_network_printer',
+        'pos_restaurant_network_printer',
         'pos_network_printer_online',
     ],
     'data': [
