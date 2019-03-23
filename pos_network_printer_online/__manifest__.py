@@ -13,7 +13,7 @@
     'version': '0.1',
     'depends': [
         'base',
-        #'pos_network_printer',
+        'pos_network_printer',
     ],
     'data': [
         # security
