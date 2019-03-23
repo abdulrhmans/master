@@ -5,8 +5,6 @@ import serial
 import socket
 import usb.core
 import usb.util
-import logging
-
 
 from .escpos import *
 from .constants import *
@@ -205,7 +203,6 @@ class Network(Escpos):
 
     def open(self):
         """ Open TCP socket and set it as escpos device """
-        logging.info('AF_INET: %s, Socket_Stream: %s' % (socket.AF_INET , socket.SOCK_STREAM))
         self.device = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.device.connect((self.host, self.port))
 
