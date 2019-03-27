@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_restaurant_network_printer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20180403\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-04 14:11+0000\n"
+"PO-Revision-Date: 2018-12-04 14:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_restaurant_network_printer
+#: model:ir.model.fields,field_description:pos_restaurant_network_printer.field_pos_config_bill_print_mode
+msgid "Bill print mode"
+msgstr "Mode d'impression addition"
+
+#. module: pos_restaurant_network_printer
+#: model:ir.ui.view,arch_db:pos_restaurant_network_printer.restaurant_printer_form_inherit
+#: model:ir.ui.view,arch_db:pos_restaurant_network_printer.restaurant_printer_tree_inherit
+msgid "IP Adress"
+msgstr "Adresse IP"
+
+#. module: pos_restaurant_network_printer
+#: selection:pos.config,bill_print_mode:0
+msgid "Network"
+msgstr "Réseau"
+
+#. module: pos_restaurant_network_printer
+#: model:ir.model.fields,field_description:pos_restaurant_network_printer.field_restaurant_printer_printer_port
+msgid "Port"
+msgstr "Port"
+
+#. module: pos_restaurant_network_printer
+#: selection:pos.config,bill_print_mode:0
+msgid "Web"
+msgstr "Web"
+
+#. module: pos_restaurant_network_printer
+#: model:ir.model,name:pos_restaurant_network_printer.model_pos_config
+msgid "pos.config"
+msgstr "pos.config"
+
+#. module: pos_restaurant_network_printer
+#: model:ir.model,name:pos_restaurant_network_printer.model_restaurant_printer
+msgid "restaurant.printer"
+msgstr "restaurant.printer"
+

@@ -10,11 +10,47 @@
     <t t-extend="PosTicket">
         <t t-jquery='.pos-sale-ticket' t-operation='replace'>
             <div class="pos-sale-ticket" style="font-family: Helvetica, sans-serif;">
-                <div style="text-align:center;">
-                    <div style="width: 50%;display:inline-block;">
-                        <img src='/web/binary/company_logo' style="width:150px;"/>
+                <div style="text-align:center;width:90%;">
+                    <div>
+                        <img src='/web/binary/company_logo' style="width:50%;"/>
+<t t-if="widget.pos.company.name">
+<div style="width:100%;text-align:center;font-weight:bold;"><t t-esc="widget.pos.company.name"/><br/>
+أسمــــاك ثــــراء
+</div>
+                </t>
+                    </div><br/>
+		<t t-if="receipt.header">
+                    <div style='text-align:center'>
+                        <t t-esc="receipt.header" />
                     </div>
-                    <div style="width: 100%;">
+                    <br/>
+                </t>
+                <table class='receipt-orderlines'>
+		    <colgroup>
+                        <col width='22%' />
+                        <col width='50%' />
+                        <col width='28%' />
+                    </colgroup>
+		<tr>
+			<td style="text-align:left;direction:ltr;">VAT #:</td>
+			<td style="text-align:center;"><t t-esc="widget.pos.company.vat" /></td>
+			<td style="text-align:right;direction:rtl;">رقم الضريبة:</td>
+		</tr>
+		<tr>
+			<td style="text-align:left;direction:ltr;">Cashier:</td>
+			<td style="text-align:center;"><t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/></td>
+			<td style="text-align:right;direction:rtl;">مؤطف:</td>
+		</tr>
+		<tr>
+			<td style="text-align:left;direction:ltr;">Date:</td>
+			<td style="text-align:center;"><t t-esc="moment().format('L LT')"/></td>
+			<td style="text-align:right;direction:rtl;">تاريخ:</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:left;"><t t-esc="order.name"/></td>
+		</tr>
+		</table>
+                    <!--<div style="width: 100%;">
                         <t t-if="order.get_client()">
                             Customer: <t t-esc="order.get_client().name"/><br />
                         </t><br />
@@ -28,29 +64,41 @@
                         Cashier: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br /><br />
 
                         <t t-esc="moment().format('L LT')"/>
-                    </div>
+                    </div>-->
                 </div>
-                <!--<t t-if="widget.pos.company.name">
-                    <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.name"/></div>
-                </t>-->
-                <!--<t t-if="widget.pos.company.email">
-                    <div style="width:100%;text-align:right;"><t t-esc="widget.pos.company.email"/></div>
-                </t>-->
-                <br />
-                <t t-if="receipt.header">
-                    <div style='text-align:center'>
-                        <t t-esc="receipt.header" />
-                    </div>
-                    <br/>
-                </t>
-                <table class='receipt-orderlines'>
+<hr style="border-top: dotted 1px; width:90%; float:left;" />
+                <div style="width:90%;font-size:14pt;font-weight:bold;text-align:center;">
+			<t t-set="tblname" t-value="widget.pos.table.name" />
+			<!--<t t-set="flr" t-value="widget.pos.table.get_floor().name" />
+			<t t-if="flr != ''">
+				<span t-field="widget.pos.table.get_floor().name" />
+			</t>
+			<t t-else="">
+				<span>TAKEAWAY</span>
+			</t>-->
+			<t t-if="tblname != ''">
+				<t t-set="tblcode" t-value="tblname.substring(0,1)" />
+				<t t-if="tblcode == 'S' || tblcode == 'F'" >
+					DINE-IN (<t t-esc="tblname" />)
+				</t>
+				<t t-else="">
+					<t t-esc="tblname" />
+				</t>
+			</t>
+			<t t-else="">
+				<span>TAKEAWAY</span>
+			</t>
+                	<span> &#160;#&#160;<t t-esc="order.name.substring(order.name.length - 4, order.name.length).replace(/^0+/, '')"/></span>
+		</div><br />
+
+                <table class='receipt-orderlines' style="width:90%;">
                     <colgroup>
-                        <col width='40%' />
+                        <col width='55%' />
                         <col width='15%' />
-                        <col width='15%' />
-                        <col width='30%' />
+                        <col width='10%' />
+                        <col width='20%' />
                     </colgroup>
-                    <tr style="border-bottom: 1px solid rgb(0, 0, 0);padding-bottom:2px;">
+                    <tr style="border-bottom: 1px dotted rgb(0, 0, 0);height:25px;">
                         <th>إسم</th>
                         <th>كمية</th>
                         <th>سعر</th>
@@ -59,6 +107,8 @@
                     <tr t-foreach="orderlines" t-as="orderline">
                         <td style="padding-top:5px;">
                             <t t-esc="orderline.get_product().display_name"/>
+                             <t t-if="orderline.get_product().product_arabic">
+							</t>
                              <t t-if="orderline.get_discount() > 0">
                                 <div class="pos-disc-font">
                                     مع 
@@ -77,12 +127,12 @@
                             <t t-esc="c"/>
                         </td>
                         <td style='text-align:right'>
-                            <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+                            <t t-esc="widget.format_currency_no_symbol(orderline.get_display_price())"/>
                         </td>
                     </tr>
                 </table>
                 <br />
-                <table class='receipt-total'>
+                <table class='receipt-total' style="width:90%;">
                     <colgroup>
                         <col width='40%' />
                         <col width='30%' />
@@ -104,6 +154,7 @@
                             </td>
                         </tr>
                     </t>
+			<t t-if="order.get_total_discount() > 0">
                     <tr>
                         <td></td>
                         <td>خصم:</td>
@@ -111,6 +162,7 @@
                             <t t-esc="widget.format_currency(order.get_total_discount())"/>
                         </td>
                     </tr>
+			</t>
                     <tr class="emph">
                         <td>إجمالي:</td>
                         <td colspan="2" style='text-align:right'>
@@ -119,7 +171,7 @@
                     </tr>
                 </table>
                 <br/>
-                <table class='receipt-paymentlines'>
+                <table class='receipt-paymentlines' style="width:90%;">
                     <colgroup>
                         <col width='38%' />
                         <col width='20%' />
@@ -142,14 +194,14 @@
                     </t>
                 </table>
                 <br/>
-                <table class='receipt-change'>
+                <table class='receipt-change' style="width:90%;">
                     <colgroup>
                         <col width='40%' />
                         <col width='15%' />
                         <col width='15%' />
                         <col width='30%' />
                     </colgroup>
-                    <tr><td>صرف:</td>
+                    <tr><td>الباقي:</td>
                          <td>
                           </td>
                           <td>
@@ -158,13 +210,14 @@
                         <t t-esc="widget.format_currency(order.get_change())"/>
                         </td></tr>
                 </table>
-                <div>
+<hr style="border-top: dotted 1px; width:90%; float:left;" />
+                <div style="width:90%;text-align:center;">
 			<t t-if="widget.pos.company.phone">
                     للحجز وخدمة التوصيل اتصل
 				<br />
 			 <t t-esc="widget.pos.company.phone || ''"/>
-	                </t>
-
+	                </t><br/>
+				شكراً لزيارتكم
 		</div> 
             </div>
         </t>
